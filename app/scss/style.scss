@@ -571,6 +571,9 @@
     }
 }
 .shop {
+    .slider-arrows {
+        opacity: 0.25;
+    }
     background-image: url(../img/shop-bg.png);
     background-repeat: no-repeat;
     background-position: right center;
@@ -672,6 +675,107 @@
 }
 
 .surfboard {
+    position: relative;
 }
+.surfboard-box {
+    position: absolute;
+    &__circle {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        position: relative;
+        background-color: #fff;
+        cursor: pointer;
+        &.active {
+            .circle-row {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
 
+        .circle-row {
+            position: absolute;
+            background-color: $green;
+            width: 12px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+            & + .circle-row {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+    }
+
+    &__content {
+        display: block;
+        position: absolute;
+        width: 359px;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 24px;
+        padding-left: 104px;
+        top: -15px;
+        left: 40px;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 1px;
+            background-color: #fff;
+            left: 0;
+            top: 50%;
+        }
+    }
+}
+.surfboard-box__circle.active + .surfboard-box__content {
+    display: none;
+}
+.surfboard__position--1 {
+    right: 40px;
+    top: 215px;
+}
+.surfboard__position--2 {
+    left: -6px;
+    top: 313px;
+}
+.surfboard__position--3 {
+    bottom: 70px;
+    left: 52px;
+    .surfboard-box__content {
+        padding-left: 0;
+        padding-right: 104px;
+        top: -15px;
+        left: -400px;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 1px;
+            background-color: #fff;
+            right: 0;
+            left: auto;
+            top: 50%;
+        }
+    }
+}
+.footer {
+    text-align: center;
+    padding: 285px 0 34px;
+    .btn {
+        span {
+            padding-right: 17px;
+            &::after {
+                display: none;
+            }
+        }
+    }
+    &__copy {
+        padding-top: 27px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 1.05px;
+        opacity: 0.5;
+    }
+}
 @import "media";
